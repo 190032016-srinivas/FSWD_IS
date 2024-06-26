@@ -1,0 +1,37 @@
+div{
+    width: 200px;
+    height: 200px;
+    border: 10px solid aqua;
+    background-color: red;
+    box-sizing:border-box;
+    /* display: none; */
+    /* visibility:visible; */
+}
+div:hover{
+    background-color: green;
+}
+
+svg{
+    color: red;
+    /* width: 44px; */
+    background-color: aqua;
+    /* height: 3000px; */
+}
+button {
+    cursor: pointer;
+    
+}
+
+
+/* @media(width<=800px){
+    
+    div{
+        
+        background-color: yellow !important;
+    }
+}
+@media(width<=800px){
+    div{
+        background-color: brown ;
+    }
+} */

@@ -1,10 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 body{
-    
+    /* change1 */
     background-color: rgb(24, 42, 57);
+/*     hi */
     /* background-image: url(/my_portfolio/images/main_bg.png); */
     /* color: rgb(0, 170, 255); */
     color: rgb(131, 131, 255);
@@ -755,6 +754,7 @@ footer{
   .slider.round:before {
     border-radius: 50%;
   }
+
 
 
 
