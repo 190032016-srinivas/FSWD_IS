@@ -158,9 +158,8 @@ function fof_register_button() {
         in_s_mail.value = en_s_mail
         in_s_num.value = en_s_num
         //alerting about the edit procedure
-        setTimeout(function() {
-            alert('Records are shown in the input section. Please edit the details and register again');
-        }, 0);        //deleting the existing record
+        alert('Records are shown in the input section. Please edit the details and register again')
+        //deleting the existing record
         fof_del_icon()
     }
     edit_icon.className = 'edit_icon'
