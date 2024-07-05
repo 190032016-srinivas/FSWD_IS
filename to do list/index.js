@@ -1,5 +1,5 @@
 let user_data_array = localStorage.getItem('user_data').split(' ')
-// console.log('user_data_array=',user_data_array)
+console.log('user_data_array=',user_data_array)
 if (localStorage.getItem('user_data')) {
     for (let task of user_data_array) {
         //creation
