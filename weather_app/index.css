@@ -1,0 +1,149 @@
+body{
+    background-color: rgb(255, 255, 255);
+    /* background-image: url(images/main_bg); */
+    /* background-size: cover; */
+    /* color: white; */
+    /* font-size: 100%; */
+    /* min-height: 100vh; */
+    height: 100vh;
+    /* border: 2px solid green; */
+    margin: 0;
+}
+    #weather_db_heading{
+        width: 100%;
+        border: 2px solid red;
+        font-weight: bold   ;
+        font-size: 2.5rem;
+        border-radius: 10px;
+        height: 10%;
+        display: flex;
+        /* text-align: center; */
+        justify-content: center;
+        align-items: center;
+        
+    }
+    #parent_search_and_today{
+        margin-top: 2%;
+        width: 100%;
+        border: 2px solid red;
+        height: 25%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+        #parent_search{
+            border: 2px solid aqua;
+            width: 20%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            border-radius: 10px;
+
+
+        }
+            #seach_heading{
+                font-weight:bolder;
+            }
+            #city_input{
+                padding: 10px;
+                width: 80%;
+                box-sizing: border-box;
+            }
+            #search_btn{
+                cursor: pointer;
+                display: block;
+                width: 80%;
+            }
+            #useloc_btn{
+                cursor: pointer;
+                width: 80%;
+            }
+        #parent_today{
+            width: 60%;
+            border: 2px solid aqua;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 10px;
+            overflow: hidden;
+            /* background-color: rgb(69, 82, 201); */
+        }
+            #parent_details{
+                width: 35%;
+                border: 2px solid aqua;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                font-size: 1.3rem;
+            }
+                #city_date{
+                    font-size: 1.7rem;
+                    font-weight: bolder;
+                }
+            #parent_discription{
+                width: 25%;
+                font-size: 2rem;
+                display: flex;
+                text-align: center;
+                /* justify-content: center; */
+                align-items: center;
+                border: 2px solid aqua;
+            }
+            #parent_img{
+                width: 25%;
+                border: 2px solid aqua;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+                #today_img{
+                    width: 50%;
+                }
+                #today_weather{
+                    font-weight: bolder;
+                }
+    #heading_5day{
+        margin-top: 2%;
+        margin-bottom: 2%;
+        /* border: 2px solid greenyellow; */
+        /* height: 10%; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.7rem;
+        font-weight: bolder;
+    }
+    #parent_future{
+        /* margin-top: 2%; */
+        width: 100%;
+        border: 2px solid red;
+        height: 30%;
+        display: flex;
+        justify-content: space-around;
+    }
+        .fut_card{
+            width: 15%;
+            height: 100%;
+            border: 2px solid aqua;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly; 
+            align-items: center;
+            border-radius: 10px;
+
+        }
+            #fut_img_cont{
+                display: flex;
+                /* flex-direction: column; */
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+                .fut_img{
+                    width: 20%;
+                }
