@@ -57,6 +57,8 @@ if(localStorage.getItem('ddd')){
     let ddd_arr = localStorage.getItem('ddd').split('$')
     // console.log('spotted',ddd_arr)
     for(let city of ddd_arr){
+        console.log('city=',city)
+        if(city.length==0)continue
         let dd_el = document.createElement('div')
         dd_el.textContent = city
         dd_el.className = 'dd_city'
