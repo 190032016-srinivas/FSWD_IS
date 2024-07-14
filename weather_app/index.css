@@ -1,17 +1,18 @@
 body{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(17, 23, 68);
     background-image: url(images/main_bg_1);
+    /* background-image: linear-gradient(to bottom right, rgb(51, 0, 255), rgb(0, 255, 51)); */
     background-size: cover;
     color: white;
     /* font-size: 100%; */
     /* min-height: 100vh; */
     height: 100vh;
-    /* border: 2px solid green; */
+    /* border: 3px solid green; */
     margin: 0;
 }
     #weather_db_heading{
         width: 100%;
-        /* border: 2px solid red; */
+        /* border: 3px solid red; */
         font-weight: bold   ;
         font-size: 2.5rem;
         border-radius: 10px;
@@ -25,13 +26,13 @@ body{
     #parent_search_and_today{
         margin-top: 1%;
         width: 100%;
-        /* border: 2px solid red; */
+        /* border: 3px solid red; */
         height: 30%;
         display: flex;
         justify-content: space-evenly;
     }
         #parent_search{
-            border: 2px solid aqua;
+            border: 3px solid aqua;
             width: 20%;
             height: 100%;
             display: flex;
@@ -46,7 +47,7 @@ body{
                 font-weight:bolder;
             }
             #parent_input_dd{
-                /* border: 2px solid greenyellow; */
+                /* border: 3px solid greenyellow; */
                 position: relative;
                 width: 80%;
             }
@@ -54,10 +55,10 @@ body{
                     padding: 10px;
                     width: 100%;
                     box-sizing: border-box;
-                    
+                    border-radius: 5px;
                 }
                 #dropdown{
-                    /* border: 2px solid red; */
+                    /* border: 3px solid red; */
                     width: 100%;
                     box-sizing: border-box;
                     position: absolute;
@@ -71,6 +72,8 @@ body{
                         border: 1px solid gray;
                         cursor: pointer;
                         color: black;
+                        padding: 2%;
+                        /* max-height: 100%; */
                     }
                     .dd_city:hover{
                         background-color: rgb(204, 201, 201);
@@ -80,15 +83,23 @@ body{
                 display: block;
                 width: 80%;
                 height: 15%;
+                border-radius: 5px;
+            }
+            #search_btn:hover{
+                background-color: rgba(0, 255, 255);
             }
             #useloc_btn{
                 cursor: pointer;
                 width: 80%;
                 height: 15%;
+                border-radius: 5px;
+            }
+            #useloc_btn:hover{
+                background-color: aqua;
             }
         #parent_today{
             width: 75%;
-            /* border: 2px solid aqua; */
+            /* border: 3px solid aqua; */
             height: 100%;
             display: flex;
             justify-content: space-between;
@@ -98,7 +109,7 @@ body{
         }
             #parent_details{
                 width: 45%;
-                border: 2px solid aqua;
+                border: 3px solid aqua;
                 height: 100%;
                 display: flex;
                 flex-direction: column;
@@ -112,20 +123,28 @@ body{
                     font-size: 1.7rem;
                     font-weight: bolder;
                 }
+                #full_data{
+                    border-radius: 5px;
+                }
+                #full_data:hover{
+                    cursor: pointer;
+                    background-color: aqua;
+                }
             #parent_discription{
+                padding: 1%;
                 width: 25%;
                 font-size: 1.3rem;
                 display: flex;
                 text-align: center;
                 /* justify-content: center; */
                 align-items: center;
-                border: 2px solid aqua;
+                border: 3px solid aqua;
                 border-radius: 10px;
                 box-sizing: border-box;
             }
             #parent_img{
                 width: 25%;
-                border: 2px solid aqua;
+                border: 3px solid aqua;
                 height: 100%;
                 display: flex;
                 flex-direction: column;
@@ -142,9 +161,9 @@ body{
                     font-weight: bolder;
                 }
     #heading_5day{
-        margin-top: 1.5%;
-        margin-bottom: 1.5%;
-        /* border: 2px solid greenyellow; */
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+        /* border: 3px solid greenyellow; */
         /* height: 10%; */
         display: flex;
         align-items: center;
@@ -155,15 +174,24 @@ body{
     #parent_future{
         /* margin-top: 2%; */
         width: 100%;
-        /* border: 2px solid red; */
+        /* border: 3px solid red; */
         height: 30%;
         display: flex;
         justify-content: space-around;
+        gap: 20px;
+        padding: 0px 20px;
+        box-sizing: border-box;
+        flex-wrap: wrap;
     }
         .fut_card{
-            width: 15%;
-            height: 100%;
-            border: 2px solid aqua;
+            width: min-content;
+            padding: 2%;
+            /* width: 15%; */
+            /* width: 250px; */
+            /* min-width: 150px; */
+            /* margin: 10px; */
+            /* height: 100%; */
+            border: 3px solid aqua;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly; 
@@ -181,3 +209,55 @@ body{
                 .fut_img{
                     width: 20%;
                 }
+
+
+
+@media (width<1100px){
+    #parent_search_and_today{
+        flex-direction: column;
+        align-items: center;
+        height: 40%;
+    }
+    #parent_search{
+        width: 50%;
+        margin-bottom: 5%;
+    }
+    #parent_today{
+        width: 90%;
+    }
+    #search_btn{
+        /* height: 25%; */
+    }
+    #useloc_btn{
+        /* height: 25%; */
+    }
+    #parent_discription{
+        font-size: 1rem;
+    }
+}
+
+@media (width<700px){
+    *{
+        font-size: 0.8rem;
+    }
+    #parent_discription{
+        display: none;
+    }
+    #parent_today{
+        justify-content: space-evenly;
+    }
+    #weather_db_heading{
+        font-size: 1.5rem;
+        height: 8%;
+    }
+    #city_input{
+        height: 6%;
+    }
+    #city_date{
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+    #heading_5day{
+        font-size: 1rem;
+    }
+}
