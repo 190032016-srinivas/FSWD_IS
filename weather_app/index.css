@@ -9,6 +9,8 @@ body{
     height: 100vh;
     /* border: 3px solid green; */
     margin: 0;
+    font-family:monospace;
+    font-size: 1rem;
 }
     #weather_db_heading{
         width: 100%;
@@ -232,12 +234,7 @@ body{
     #parent_today{
         width: 90%;
     }
-    #search_btn{
-        /* height: 25%; */
-    }
-    #useloc_btn{
-        /* height: 25%; */
-    }
+    
     #parent_discription{
         font-size: 1rem;
     }
