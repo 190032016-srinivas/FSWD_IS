@@ -1,6 +1,7 @@
 - github link https://github.com/190032016-srinivas/To-Do-List-with-Vite
 
 * this is a basic to do application
+* all components are in a components folder
 * all the dependencies are in the package.json
 
 - DONT FORGET TO RUN \*\* NPM INSTALL
