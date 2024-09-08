@@ -4,6 +4,7 @@
 * all components are in a components folder
 * all the dependencies are in the package.json
 
+- IF YOU ALREADY HAVE NODE MODULES PLEASE DELETE IT AND INSTALL AGAIN
 - DONT FORGET TO RUN \*\* NPM INSTALL
 - TO RUN THE APP DO \*\* NPM RUN DEV
 
