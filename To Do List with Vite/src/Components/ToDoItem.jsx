@@ -14,6 +14,32 @@ export const ToDoItem = ({
   index,
   key,
 }) => {
+  function addTask() {
+    let MIndex = index;
+    let newToDoList = toDoList.filter((name, index) => {
+      return index != MIndex;
+    });
+    setToDoList(newToDoList);
+    setCompletedTodoList([{ id: uuidv4(), val: toDo }, ...completedTodoList]);
+  }
+  function editTask() {
+    setInputToDo(toDo);
+    let MIndex = index;
+    let newToDoList = toDoList.filter((name, index) => {
+      return index != MIndex;
+    });
+    setToDoList(newToDoList);
+  }
+  function deleteTask() {
+    const deleteConfirm = window.confirm("Are you sure you want to delete?");
+    if (deleteConfirm) {
+      let MIndex = index;
+      let newToDoList = toDoList.filter((name, index) => {
+        return index != MIndex;
+      });
+      setToDoList(newToDoList);
+    }
+  }
   return (
     <div
       style={{
@@ -33,17 +59,7 @@ export const ToDoItem = ({
         }}
       >
         <IconButton
-          onClick={() => {
-            let MIndex = index;
-            let newToDoList = toDoList.filter((name, index) => {
-              return index != MIndex;
-            });
-            setToDoList(newToDoList);
-            setCompletedTodoList([
-              { id: uuidv4(), val: toDo },
-              ...completedTodoList,
-            ]);
-          }}
+          onClick={addTask}
           sx={{
             padding: "0px",
             marginRight: "5px",
@@ -55,14 +71,7 @@ export const ToDoItem = ({
       </div>
       <div>
         <IconButton
-          onClick={() => {
-            setInputToDo(toDo);
-            let MIndex = index;
-            let newToDoList = toDoList.filter((name, index) => {
-              return index != MIndex;
-            });
-            setToDoList(newToDoList);
-          }}
+          onClick={editTask}
           sx={{
             padding: "0px",
             marginRight: "5px",
@@ -71,18 +80,7 @@ export const ToDoItem = ({
           <EditIcon fontSize="small" />
         </IconButton>
         <IconButton
-          onClick={() => {
-            const deleteConfirm = window.confirm(
-              "Are you sure you want to delete?"
-            );
-            if (deleteConfirm) {
-              let MIndex = index;
-              let newToDoList = toDoList.filter((name, index) => {
-                return index != MIndex;
-              });
-              setToDoList(newToDoList);
-            }
-          }}
+          onClick={deleteTask}
           sx={{
             padding: "0px",
             marginRight: "5px",
