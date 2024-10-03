@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setBooks } from "../utils/bookslice";
+import { setBooks } from "../utils/Bookslice";
 import { useNavigate } from "react-router-dom";
 import { GlobalData } from "../utils/GlobalData";
 
@@ -92,12 +92,16 @@ export function CreateBookForm() {
         </div>
         <div>
           <label>Description:</label>
-          <input
-            type="text"
+          <textarea
             ref={descriptionRef}
             required
-            style={{ width: "100%", padding: "8px", boxSizing: "border-box" }}
-          />
+            style={{
+              width: "100%",
+              padding: "8px",
+              boxSizing: "border-box",
+              resize: "vertical",
+            }}
+          ></textarea>
         </div>
         <div>
           <label>Rating:</label>
