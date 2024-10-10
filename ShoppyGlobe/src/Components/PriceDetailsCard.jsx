@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../CssFiles/PriceDetailsCard.css";
+import { GlobalContext } from "../GlobalData";
 
 const PriceDetailsCard = ({ price, discount, amountPayable, onPlaceOrder }) => {
+  const { snackbarOpen, setSnackbarOpen, snackbarMessage, setSnackbarMessage } =
+    useContext(GlobalContext);
   return (
     <div className="price-details-card">
       <h2>Price Details</h2>

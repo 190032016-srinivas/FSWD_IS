@@ -1,16 +1,31 @@
 import { Snackbar } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
+import { useContext } from "react";
+import { GlobalContext } from "../GlobalData";
 
-const CustomSnackbar = ({ open, onClose, message }) => {
+const CustomSnackbar = () => {
+  const { snackbarOpen, setSnackbarOpen, snackbarMessage, setSnackbarMessage } =
+    useContext(GlobalContext);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setSnackbarOpen(false);
+  };
+
   return (
-    <Snackbar open={open} autoHideDuration={3000} onClose={onClose}>
+    <Snackbar open={snackbarOpen} autoHideDuration={3000} onClose={handleClose}>
       <MuiAlert
-        onClose={onClose}
+        onClose={handleClose}
         severity="success"
         sx={{ width: "100%" }}
-        variant="filled"
+        variant="standard"
+        style={{
+          border: "2px solid green",
+        }}
       >
-        {message}
+        {snackbarMessage}
       </MuiAlert>
     </Snackbar>
   );

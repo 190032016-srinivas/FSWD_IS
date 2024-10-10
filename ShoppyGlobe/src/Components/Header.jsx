@@ -1,8 +1,9 @@
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import "../CssFiles/Header.css"; // Ensure you create this CSS file for styling
 import PublicIcon from "@mui/icons-material/Public";
+import "../CssFiles/Header.css";
+
 const Header = ({ cartItemCount, handleSearchClick, handleCartClick }) => {
   return (
     <header className="header">
@@ -11,6 +12,12 @@ const Header = ({ cartItemCount, handleSearchClick, handleCartClick }) => {
         ShoppyGlobe.in
       </div>
       <div className="right-section">
+        <button
+          className="home-button"
+          onClick={() => console.log("Home clicked")}
+        >
+          Home
+        </button>
         <div className="search-container">
           <input type="text" placeholder="Search..." className="search-input" />
           <div className="search-icon" onClick={handleSearchClick}>

@@ -54,6 +54,9 @@
   .quantity-button:hover {
     background-color: #45a049;
   }
+  .quantity-button:focus {
+    outline: none;
+  }
   
  
   .cart-item-quantity {

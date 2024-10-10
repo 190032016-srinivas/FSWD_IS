@@ -1,37 +1,22 @@
-import React, { useEffect, useState } from "react";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
+import React, { useContext } from "react";
 import "./App.css";
 import PriceDetailsCard from "./Components/PriceDetailsCard";
 import CartItem from "./Components/CartItem";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ProductCard from "./Components/ProductCard";
 import Header from "./Components/Header";
 import useFetchProducts from "./CustomHooks/useFetchProducts";
 import CustomSnackbar from "./Components/CustomSanckbar";
+import { GlobalContext } from "./GlobalData";
+import ProductDetails from "./Components/ProductDetails";
 const App = () => {
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("Added to cart!");
-
-  const handleOpenSnackbar = (message) => {
-    setSnackbarMessage(message);
-    setSnackbarOpen(true);
-  };
-
-  const handleCloseSnackbar = (reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setSnackbarOpen(false);
-  };
   const handlePlaceOrder = () => {
     alert("Order placed successfully!");
   };
-  const { products, loading, error } = useFetchProducts();
-  console.log("roducs=", products);
+  const { products } = useFetchProducts();
+  console.log("products=", products);
+  const { snackbarMessage } = useContext(GlobalContext);
   return (
-    <>
+    <div className="main-div">
       <Header
         cartItemCount={3}
         handleSearchClick={() => alert("Search icon clicked!")}
@@ -45,7 +30,6 @@ const App = () => {
               imageSrc={product.images[0]}
               price={`$${product.price}`}
               name={product.title}
-              onAddToCart={() => alert(`Added ${product.title} to cart`)}
             />
           );
         })}
@@ -66,12 +50,9 @@ const App = () => {
           onPlaceOrder={handlePlaceOrder}
         />
       </div>
-      <CustomSnackbar
-        open={snackbarOpen}
-        onClose={handleCloseSnackbar}
-        message={snackbarMessage}
-      />
-    </>
+      <CustomSnackbar />
+      {products.length > 0 && <ProductDetails product={products[0]} />}
+    </div>
   );
 };
 
