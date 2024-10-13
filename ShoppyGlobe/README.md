@@ -4,5 +4,6 @@
 - DONT FORGET TO RUN \*\* NPM INSTALL
 - TO RUN THE APP DO \*\* NPM RUN DEV
 - As we are not storing anydata in local storage or session storage , data will be lost if you reload be careful
+- you will be prompted by a confirm dialogue before reloading
 - you can search by name of the product
 - thank you
