@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
-  cursor: pointer;
   background-color: white;
   margin: 1rem;
 }
@@ -18,6 +17,7 @@
     padding: 0.3rem ;
     font-size: 1rem;
     cursor: pointer;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,6 +31,7 @@
  
   
   .product-card-image {
+    cursor: pointer;
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: contain;
@@ -62,5 +63,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    cursor: pointer;
   }
   

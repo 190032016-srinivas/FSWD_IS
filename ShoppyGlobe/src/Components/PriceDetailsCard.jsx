@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "../CssFiles/PriceDetailsCard.css";
 import { GlobalContext } from "../GlobalData";
+import { Link } from "react-router-dom";
 
 const PriceDetailsCard = ({ price, discount, amountPayable, onPlaceOrder }) => {
   const { snackbarOpen, setSnackbarOpen, snackbarMessage, setSnackbarMessage } =
@@ -30,9 +31,9 @@ const PriceDetailsCard = ({ price, discount, amountPayable, onPlaceOrder }) => {
         {" "}
         <hr />
       </div>
-      <button className="place-order-button" onClick={onPlaceOrder}>
-        Place Order
-      </button>
+      <Link to={"/checkout"} style={{ alignSelf: "end" }}>
+        <button className="place-order-button">Place Order</button>
+      </Link>
     </div>
   );
 };

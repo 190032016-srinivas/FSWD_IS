@@ -4,7 +4,7 @@
     border: 1px solid #e0e0e0;
     padding: 1rem;
     border-radius: 0.5rem;
-    width: 50%;
+    width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
     transition: transform 0.2s;
@@ -16,7 +16,7 @@
     width: 150px;
     height: 150px;
     margin-right: 1rem;
-    object-fit: cover;
+    object-fit:contain;
     border-radius: 0.5rem;
   }
   

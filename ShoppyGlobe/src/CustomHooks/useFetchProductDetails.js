@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
-
-const useFetchProducts = (
-  setProducts,
-  setLoading,
-  setError,
-  setGlobalProducts
-) => {
+// unused hook
+const useFetchProductDetails = (setProduct, setLoading, setError, target) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -14,8 +9,12 @@ const useFetchProducts = (
           throw new Error("Failed to fetch products");
         }
         const data = await response.json();
-        setProducts(data.products);
-        setGlobalProducts(data.products);
+        for (let product of data.products) {
+          if (product.title == target) {
+            setProduct(product);
+            break;
+          }
+        }
       } catch (err) {
         setError(err.message);
       } finally {
@@ -27,4 +26,4 @@ const useFetchProducts = (
   }, []);
 };
 
-export default useFetchProducts;
+export default useFetchProductDetails;
