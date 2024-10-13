@@ -1,17 +1,15 @@
-import React, { Suspense, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "./App.css";
-import PriceDetailsCard from "./Components/PriceDetailsCard";
-import CartItem from "./Components/CartItem";
-import ProductCard from "./Components/ProductCard";
 import Header from "./Components/Header";
-import useFetchProducts from "./CustomHooks/useFetchProducts";
 import CustomSnackbar from "./Components/CustomSanckbar";
 import { GlobalContext } from "./GlobalData";
-import ProductDetails from "./Components/ProductDetails";
-import CartPage from "./Components/CartPage";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import {
+  Outlet,
+  ScrollRestoration,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import ArrowBack from "./Components/ArrowBack";
-import LoadingComponent from "./Components/LoadingComponent";
 const App = () => {
   const handlePlaceOrder = () => {
     alert("Order placed successfully!");
@@ -41,6 +39,8 @@ const App = () => {
       {url.pathname != "/" && <ArrowBack />}
       <Outlet />
       <CustomSnackbar />
+      {/* this scrolls the page to the top for the next components */}
+      <ScrollRestoration />
     </div>
   );
 };
