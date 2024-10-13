@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import ProductCard from "./ProductCard"; // Make sure to import your ProductCard component
+import ProductCard from "./ProductCard";
 import useFetchProducts from "../CustomHooks/useFetchProducts";
 import "../App.css";
 import LoadingComponent from "./LoadingComponent";
@@ -10,6 +10,8 @@ const Homepage = () => {
     useContext(GlobalContext);
 
   const [products, setProducts] = useState([]);
+  // we are storing the products data here in the compoenents state but it should be stored in the global context for sharing
+  // so we are storing it here and also in global for product details page to access
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,11 +21,14 @@ const Homepage = () => {
   };
 
   useFetchProducts(setProducts, setLoading, setError, setGlobalProducts);
+  // this useeffect is for setting filteredProducts
   useEffect(() => {
     setFilteredProducts(products);
   }, [products]);
+  // this useeffect is for setting products
   useEffect(() => {
     if (searchValue == "") {
+      // resetting the producst
       setFilteredProducts(products);
     }
     setFilteredProducts(

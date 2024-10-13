@@ -7,7 +7,7 @@ const ArrowBack = () => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate("/"); // Navigates to the home page
+    navigate("/");
   };
 
   return (

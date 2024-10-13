@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ".././CssFiles/CartItem.css"; // Make sure to create this CSS file for styling
+import ".././CssFiles/CartItem.css";
 import { useDispatch } from "react-redux";
 import { decrementCount, incrementCount, removeFromCart } from "../CartSlice";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "../CssFiles/FetchError.css"; // Optional: Create a separate CSS file for styling
+import "../CssFiles/FetchError.css";
 
 const FetchError = ({ message, onRetry }) => {
   return (

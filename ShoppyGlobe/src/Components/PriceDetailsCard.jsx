@@ -3,9 +3,7 @@ import "../CssFiles/PriceDetailsCard.css";
 import { GlobalContext } from "../GlobalData";
 import { Link } from "react-router-dom";
 
-const PriceDetailsCard = ({ price, discount, amountPayable, onPlaceOrder }) => {
-  const { snackbarOpen, setSnackbarOpen, snackbarMessage, setSnackbarMessage } =
-    useContext(GlobalContext);
+const PriceDetailsCard = ({ price, discount, amountPayable }) => {
   return (
     <div className="price-details-card">
       <h2>Price Details</h2>

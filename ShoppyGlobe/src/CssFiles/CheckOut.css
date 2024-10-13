@@ -105,3 +105,13 @@
     }
   }
   
+
+  @media screen and (max-width: 1000px) {
+    
+    .checkout-container {
+      width: 60%;
+    }
+    
+    
+
+  }

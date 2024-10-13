@@ -15,7 +15,7 @@ const Header = () => {
     <header className="header">
       <div className="logo">
         <PublicIcon sx={{ marginRight: "0.5rem", fontSize: "2rem" }} />
-        ShoppyGlobe.in
+        <div className="logo-name">ShoppyGlobe.in</div>
       </div>
       <div className="right-section">
         <Link to={"/"}>

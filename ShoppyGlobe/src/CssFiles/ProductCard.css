@@ -1,5 +1,6 @@
 .product-card {
   width: 20%; /* Adjust width as needed */
+  min-width: 150px;
   border: 1px solid #ccc;
   border-radius: 0.4rem;
   overflow: hidden;
@@ -15,9 +16,10 @@
     border: none;
     border-radius: 0.25rem;
     padding: 0.3rem ;
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    
+    /* width: 1rem; */
+    aspect-ratio: 1 /1 ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,3 +68,30 @@
     cursor: pointer;
   }
   
+
+  @media screen and (max-width: 1000px) {
+    .product-card {
+      width: 28%;
+    }
+    .cartInProductCard{
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media screen and (max-width: 625px) {
+    .product-card {
+      width: 30%;
+    }
+    .cartInProductCard{
+      font-size: 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .productCard-name {
+      font-size: 0.775rem;
+    }
+    .product-card-price {
+      font-size: 0.875rem; 
+    }
+  }

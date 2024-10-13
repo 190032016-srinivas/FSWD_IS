@@ -10,13 +10,8 @@ function CartPage() {
   const totalPrice = cartItems
     .reduce((sum, item) => sum + item.price * item.quantity, 0)
     .toFixed(2);
-  const discount = (0.2 * totalPrice).toFixed(2); // Example discount amount
+  const discount = (0.2 * totalPrice).toFixed(2); // discount 20 percent flat
   const amountPayable = (totalPrice - discount).toFixed(2);
-
-  // Function to handle placing an order
-  const handlePlaceOrder = () => {
-    alert("Order placed successfully!");
-  };
 
   return (
     <div className="cart-page-container">
@@ -34,7 +29,6 @@ function CartPage() {
           price={totalPrice}
           discount={discount}
           amountPayable={amountPayable}
-          onPlaceOrder={handlePlaceOrder}
         />
       )}
     </div>

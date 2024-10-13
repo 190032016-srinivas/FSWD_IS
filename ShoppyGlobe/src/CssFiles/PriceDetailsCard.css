@@ -8,6 +8,7 @@
     flex-direction: column;
     background-color: white;
     height: fit-content;
+    box-sizing: border-box;
   }
   
   h2 {
@@ -50,3 +51,10 @@
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Optional focus style */
   }
   
+
+  @media screen and (max-width: 1000px) {
+    .price-details-card {
+      width: 100%;
+    }
+    
+  }

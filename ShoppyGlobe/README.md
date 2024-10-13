@@ -1,8 +1,8 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Github link https://github.com/190032016-srinivas/FSWD_IS/tree/main/ShoppyGlobe
+- IF YOU ALREADY HAVE NODE MODULES PLEASE DELETE IT AND INSTALL AGAIN
+- make sure you are in the correct directory before proceeding
+- DONT FORGET TO RUN \*\* NPM INSTALL
+- TO RUN THE APP DO \*\* NPM RUN DEV
+- As we are not storing anydata in local storage or session storage , data will be lost if you reload be careful
+- you can search by name of the product
+- thank you

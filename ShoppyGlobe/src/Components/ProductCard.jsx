@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import "../CssFiles/ProductCard.css"; // Ensure you create this CSS file for styling
+import "../CssFiles/ProductCard.css";
 import { GlobalContext } from "../GlobalData";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../CartSlice";
 
 const ProductCard = ({ product }) => {
-  const { snackbarOpen, setSnackbarOpen, snackbarMessage, setSnackbarMessage } =
-    useContext(GlobalContext);
+  const { setSnackbarOpen, setSnackbarMessage } = useContext(GlobalContext);
   const dispatch = useDispatch();
   function onAddToCart() {
     setSnackbarMessage(`${product.title} added to cart`);
@@ -30,7 +29,7 @@ const ProductCard = ({ product }) => {
         <div className="price-cart-card">
           <div className="product-card-price">{"$" + product.price}</div>
           <div className="cartInProductCard" onClick={onAddToCart}>
-            <ShoppingCartIcon sx={{ color: "white" }} />
+            <ShoppingCartIcon sx={{ color: "white", fontSize: "inherit" }} />
           </div>
         </div>
         <div
