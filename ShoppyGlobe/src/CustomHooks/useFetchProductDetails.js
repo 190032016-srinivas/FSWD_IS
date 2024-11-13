@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 // unused hook we can use this if we dont want to store the products in global context
 // this is very slow as for every product you have to make another api call
-const useFetchProductDetails = (setProduct, setLoading, setError, target) => {
+const useFetchCartItems = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -27,4 +27,4 @@ const useFetchProductDetails = (setProduct, setLoading, setError, target) => {
   }, []);
 };
 
-export default useFetchProductDetails;
+export default useFetchCartItems;

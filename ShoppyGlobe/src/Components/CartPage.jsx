@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 function CartPage() {
   const cartItems = useSelector((state) => state.cart.cartItems);
-
   const totalPrice = cartItems
     .reduce((sum, item) => sum + item.price * item.quantity, 0)
     .toFixed(2);

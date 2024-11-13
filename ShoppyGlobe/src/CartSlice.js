@@ -1,5 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { validCartItem } from "../BackEnd/Models/cartItems.model";
+import { useDispatch } from "react-redux";
 
+export const addToCartAsync = createAsyncThunk(
+  "cart/addToCart",
+  async (cartItemCopy, { rejectWithValue }) => {
+    try {
+      const newCartItem = await fetch("http://localhost:3000/cart/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cartItemCopy),
+      });
+      return cartItemCopy;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
 const initialState = {
   cartItems: [],
 };
@@ -17,8 +36,14 @@ const cartSlice = createSlice({
       if (existingItem) {
         return;
       } else {
-        state.cartItems.push({ ...action.payload, quantity: 1 }); // If it's new, add with quantity 1
+        state.cartItems.push(action.payload);
       }
+    },
+
+    //reset cart items with db ones
+
+    resetCartFromDb: (state, action) => {
+      state.cartItems = action.payload;
     },
 
     // Remove item from the cart
@@ -53,10 +78,26 @@ const cartSlice = createSlice({
       }
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(addToCartAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(addToCartAsync.fulfilled, (state, action) => {
+        console.log("fulfilled ", action.payload);
+        state.status = "succeeded";
+        state.cartItems = [...state.cartItems, action.payload];
+      })
+      .addCase(addToCartAsync.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      });
+  },
 });
 
 export const {
   addToCart,
+  resetCartFromDb,
   removeFromCart,
   incrementCount,
   decrementCount,

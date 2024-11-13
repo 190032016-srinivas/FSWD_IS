@@ -8,6 +8,8 @@ import { Provider } from "react-redux";
 import store from "./Store.js";
 import { ErrorElement } from "./Components/ErrorElement.jsx";
 import LoadingComponent from "./Components/LoadingComponent.jsx";
+import LoginPage from "./Components/LoginPage.jsx";
+import RegisterPage from "./Components/RegisterPage.jsx";
 
 const CartPage = React.lazy(() => import("./Components/CartPage.jsx"));
 const Homepage = React.lazy(() => import("./Components/HomePage.jsx"));
@@ -17,6 +19,16 @@ const ProductDetails = React.lazy(() =>
 const CheckoutPage = React.lazy(() => import("./Components/CheckOut.jsx"));
 
 const myRouter = createBrowserRouter([
+  {
+    path: "/login",
+    element: <LoginPage />,
+    // errorElement: <ErrorElement />,
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />,
+    // errorElement: <ErrorElement />,
+  },
   {
     path: "/",
     element: <App />,
@@ -46,7 +58,7 @@ const myRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/product/:title",
+        path: "/product/:productId",
         element: (
           <Suspense fallback={<LoadingComponent />}>
             <ProductDetails />
@@ -54,7 +66,7 @@ const myRouter = createBrowserRouter([
         ),
       },
     ],
-    errorElement: <ErrorElement />,
+    // errorElement: <ErrorElement />,
   },
 ]);
 createRoot(document.getElementById("root")).render(

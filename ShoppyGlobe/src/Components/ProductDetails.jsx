@@ -1,28 +1,50 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../CssFiles/ProductDetails.css";
 import LoadingComponent from "./LoadingComponent";
-import useFetchProductDetails from "../CustomHooks/useFetchProductDetails";
+import useFetchCartItems from "../CustomHooks/useFetchProductDetails";
 import { useParams } from "react-router-dom";
 import { GlobalContext } from "../GlobalData";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../CartSlice";
+import { addToCart, addToCartAsync } from "../CartSlice";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const { title } = useParams();
+  const { productId } = useParams();
+  function makeClone(product) {
+    const clone = structuredClone(product);
+    clone.id = clone._id;
+    delete clone._id;
+    clone.quantity = 1;
+    clone.userId = localStorage.getItem("userId");
+
+    return clone;
+  }
   const { globalProducts, setSnackbarOpen, setSnackbarMessage } =
     useContext(GlobalContext);
-  useEffect(() => {
-    for (let product of globalProducts) {
-      if (product.title == title) {
-        setProduct(product);
-        break;
+
+  async function getProductDetails() {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/products/${productId}`
+      );
+      if (!response.ok) {
+        return;
+      } else {
+        const formattedResponse = await response.json();
+        setProduct(formattedResponse.productFromDb);
       }
+    } catch (error) {
+      console.log("error in login =", error);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
+  }
+
+  useEffect(() => {
+    getProductDetails();
   }, []);
   return (
     <div className="main-pd-container">
@@ -37,7 +59,7 @@ const ProductDetails = () => {
             <button
               className="add-to-cart-button"
               onClick={() => {
-                dispatch(addToCart(product));
+                dispatch(addToCartAsync(makeClone(product)));
                 setSnackbarMessage(`${product.title} added to cart`);
                 setSnackbarOpen(true);
               }}

@@ -1,16 +1,44 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PublicIcon from "@mui/icons-material/Public";
 import "../CssFiles/Header.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GlobalContext } from "../GlobalData";
+import { resetCartFromDb } from "../CartSlice";
 
 const Header = () => {
   const noOfCartItmes = useSelector((state) => state.cart.cartItems).length;
   const { searchValue, setSearchValue } = useContext(GlobalContext);
+  const dispatch = useDispatch();
+  let ismounted = false;
 
+  async function getAllCartItems() {
+    try {
+      if (!ismounted) return;
+      const response = await fetch(
+        `http://localhost:3000/cart/${localStorage.getItem("userId")}`
+      );
+      if (!response.ok) {
+        return;
+      } else {
+        const formattedResponse = await response.json();
+        dispatch(resetCartFromDb(formattedResponse));
+      }
+    } catch (error) {
+      console.log("error in fetching cart items form db=", error);
+    }
+  }
+
+  useEffect(() => {
+    ismounted = true;
+    getAllCartItems();
+    return () => {
+      console.log("cleanup func called ");
+      ismounted = false;
+    };
+  }, []);
   return (
     <header className="header">
       <div className="logo">

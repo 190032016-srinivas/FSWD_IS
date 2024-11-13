@@ -17,22 +17,22 @@ const App = () => {
   const url = useLocation();
   const navigate = useNavigate();
   const { bypassRef } = useContext(GlobalContext);
-  useEffect(() => {
-    if (url.pathname != "/") {
-      navigate("/");
-    }
-    window.addEventListener("beforeunload", function (e) {
-      console.log("window called", bypassRef);
-      if (bypassRef.current) {
-        console.log("indeed true");
-        bypassRef.current = false;
-        return;
-      }
-      e.preventDefault();
-      e.returnValue =
-        "Are you sure you want to leave? Your changes are not saved.";
-    });
-  }, []);
+  // useEffect(() => {
+  //   if (url.pathname != "/") {
+  //     navigate("/");
+  //   }
+  //   window.addEventListener("beforeunload", function (e) {
+  //     console.log("window called", bypassRef);
+  //     if (bypassRef.current) {
+  //       console.log("indeed true");
+  //       bypassRef.current = false;
+  //       return;
+  //     }
+  //     e.preventDefault();
+  //     e.returnValue =
+  //       "Are you sure you want to leave? Your changes are not saved.";
+  //   });
+  // }, []);
   return (
     <div className="the-main-div">
       <Header />
