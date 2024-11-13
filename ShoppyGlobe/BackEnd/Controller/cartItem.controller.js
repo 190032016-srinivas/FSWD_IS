@@ -9,7 +9,7 @@ export async function addCartItem(req, res) {
   }
   const newCartItem = await validCartItem.create(req.body);
   if (!newCartItem) res.status(400).json({ message: "something went wrong" });
-  else res.status(200).send(newCartItem);
+  else res.status(200).send(cartitem);
 }
 
 export async function getAllCartItems(req, res) {

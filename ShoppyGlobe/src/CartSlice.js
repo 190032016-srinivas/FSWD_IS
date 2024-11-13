@@ -6,13 +6,16 @@ export const addToCartAsync = createAsyncThunk(
   "cart/addToCart",
   async (cartItemCopy, { rejectWithValue }) => {
     try {
-      const newCartItem = await fetch("http://localhost:3000/cart/add", {
+      const response = await fetch("http://localhost:3000/cart/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(cartItemCopy),
       });
+      if (!response.ok) {
+        return rejectWithValue("item already added ");
+      }
       return cartItemCopy;
     } catch (error) {
       return rejectWithValue(error);
