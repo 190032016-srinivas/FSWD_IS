@@ -1,10 +1,17 @@
 - Github link https://github.com/190032016-srinivas/FSWD_IS/tree/main/ShoppyGlobe
 - IF YOU ALREADY HAVE NODE MODULES PLEASE DELETE IT AND INSTALL AGAIN
 - make sure you are in the correct directory before proceeding !!!
+
 - DONT FORGET TO RUN \*\* NPM INSTALL
-- TO RUN THE APP DO \*\* NPM RUN DEV
-- As we are not storing anydata in local storage or session storage , data will be lost if you reload be careful
-- you will be prompted by a confirm dialogue before reloading
+
+- TO RUN THE APP :
+- - open the terminal
+- - go to the main root folder ie shoppyglobe
+- - run (npm run dev) command to start the front end app
+- - create a new terminal from the top right plus icon in the terminal
+- - do cd and go into the Backend folder (cd .\BackEnd\)
+- - run (node server.js) command to start the backend
+
 - you can search by name of the product
 - components are using LAZY LOADING
 - thank you
