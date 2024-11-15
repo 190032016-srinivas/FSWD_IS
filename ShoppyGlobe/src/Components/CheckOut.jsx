@@ -3,7 +3,7 @@ import "../CssFiles/CheckOut.css";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { clearCart } from "../CartSlice";
+import { clearCart, deleteCartCompletelyAsync } from "../CartSlice";
 import { GlobalContext } from "../GlobalData";
 function CheckoutPage() {
   const [formData, setFormData] = useState({
@@ -34,7 +34,8 @@ function CheckoutPage() {
       icon: "success",
       confirmButtonText: "OK",
     });
-    dispatch(clearCart());
+    // dispatch(clearCart());
+    dispatch(deleteCartCompletelyAsync());
     setSearchValue("");
     navigate("/");
   };

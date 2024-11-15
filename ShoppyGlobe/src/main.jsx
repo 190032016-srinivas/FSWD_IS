@@ -22,12 +22,12 @@ const myRouter = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
-    // errorElement: <ErrorElement />,
+    errorElement: <ErrorElement />,
   },
   {
     path: "/register",
     element: <RegisterPage />,
-    // errorElement: <ErrorElement />,
+    errorElement: <ErrorElement />,
   },
   {
     path: "/",
@@ -66,7 +66,7 @@ const myRouter = createBrowserRouter([
         ),
       },
     ],
-    // errorElement: <ErrorElement />,
+    errorElement: <ErrorElement />,
   },
 ]);
 createRoot(document.getElementById("root")).render(

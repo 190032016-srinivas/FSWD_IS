@@ -14,6 +14,8 @@ export async function getAllProductItems(req, res) {
   else res.status(200).json({ products: allProductItems });
 }
 export async function getProductDetailsById(req, res) {
+  if (req.params.productId.length !== 24)
+    return res.status(400).json({ message: "invalid id length" });
   const productFromDb = await validProductItem.findOne({
     _id: req.params.productId,
   });

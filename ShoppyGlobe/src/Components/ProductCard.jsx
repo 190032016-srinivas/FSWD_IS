@@ -9,6 +9,7 @@ import { addToCart, addToCartAsync } from "../CartSlice";
 const ProductCard = ({ product }) => {
   const { setSnackbarOpen, setSnackbarMessage } = useContext(GlobalContext);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   function makeClone(product) {
     const clone = structuredClone(product);
     clone.id = clone._id;
@@ -22,9 +23,8 @@ const ProductCard = ({ product }) => {
     setSnackbarOpen(true);
 
     // dispatch(addToCart(clone));
-    dispatch(addToCartAsync(makeClone(product)));
+    dispatch(addToCartAsync({ cartItemCopy: makeClone(product), navigate }));
   }
-  const navigate = useNavigate();
   return (
     <div className="product-card">
       <img

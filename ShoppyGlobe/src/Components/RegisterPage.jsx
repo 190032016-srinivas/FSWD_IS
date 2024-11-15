@@ -52,59 +52,65 @@ function RegisterPage() {
   };
 
   return (
-    <div className="register-container">
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit} className="register-form">
-        <div className="form-group">
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Full Name"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Password"
-            required
-          />
-          {registerError && (
-            <p
-              style={{ fontSize: "0.9rem", marginBottom: "0px", color: "red" }}
-            >
-              email already taken
-            </p>
-          )}
-        </div>
-        <button type="submit" className="register-btn">
-          Register
-        </button>
-      </form>
-      <p style={{ fontSize: "0.9rem" }}>
-        Already have an account?{" "}
-        <span
-          onClick={() => navigate("/login")}
-          style={{ cursor: "pointer", color: "#007bff" }}
-        >
-          Login
-        </span>
-      </p>
+    <div className="register-parent-container">
+      <div className="register-container">
+        <h2>Register</h2>
+        <form onSubmit={handleSubmit} className="register-form">
+          <div className="form-group">
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Full Name"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+              required
+            />
+            {registerError && (
+              <p
+                style={{
+                  fontSize: "0.9rem",
+                  marginBottom: "0px",
+                  color: "red",
+                }}
+              >
+                email already taken
+              </p>
+            )}
+          </div>
+          <button type="submit" className="register-btn">
+            Register
+          </button>
+        </form>
+        <p style={{ fontSize: "0.9rem" }}>
+          Already have an account?{" "}
+          <span
+            onClick={() => navigate("/login")}
+            style={{ cursor: "pointer", color: "#007bff" }}
+          >
+            Login
+          </span>
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,18 +1,33 @@
 import React, { useState } from "react";
 import ".././CssFiles/CartItem.css";
 import { useDispatch } from "react-redux";
-import { decrementCount, incrementCount, removeFromCart } from "../CartSlice";
+import {
+  decrementCount,
+  deleteCartItemAsync,
+  incrementCount,
+  removeFromCart,
+  updateCartItmeAsync,
+} from "../CartSlice";
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const handleIncrease = (id) => {
-    dispatch(incrementCount(id));
+    // dispatch(incrementCount(id));
+    dispatch(updateCartItmeAsync({ id: id, newCount: cartItem.quantity + 1 }));
   };
   const handleDecrease = (id) => {
-    dispatch(decrementCount(id));
+    // dispatch(decrementCount(id));
+    if (cartItem.quantity < 2) {
+      dispatch(deleteCartItemAsync(id));
+    } else {
+      dispatch(
+        updateCartItmeAsync({ id: id, newCount: cartItem.quantity - 1 })
+      );
+    }
   };
   const handleDelete = (id) => {
-    dispatch(removeFromCart(id));
+    // dispatch(removeFromCart(id));
+    dispatch(deleteCartItemAsync(id));
   };
 
   return (

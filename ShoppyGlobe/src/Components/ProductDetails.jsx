@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import "../CssFiles/ProductDetails.css";
 import LoadingComponent from "./LoadingComponent";
 import useFetchCartItems from "../CustomHooks/useFetchProductDetails";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "../GlobalData";
 import { useDispatch } from "react-redux";
 import { addToCart, addToCartAsync } from "../CartSlice";
+import { ErrorElement } from "./ErrorElement";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState();
@@ -13,6 +14,7 @@ const ProductDetails = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const { productId } = useParams();
+  const navigate = useNavigate();
   function makeClone(product) {
     const clone = structuredClone(product);
     clone.id = clone._id;
@@ -27,10 +29,20 @@ const ProductDetails = () => {
 
   async function getProductDetails() {
     try {
+      if (productId.length !== 24) return;
+      let token = localStorage.getItem("authToken");
       const response = await fetch(
-        `http://localhost:3000/products/${productId}`
+        `http://localhost:3000/products/${productId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       if (!response.ok) {
+        if (response.status === 403) {
+          navigate("/login");
+        }
         return;
       } else {
         const formattedResponse = await response.json();
@@ -59,7 +71,9 @@ const ProductDetails = () => {
             <button
               className="add-to-cart-button"
               onClick={() => {
-                dispatch(addToCartAsync(makeClone(product)));
+                dispatch(
+                  addToCartAsync({ cartItemCopy: makeClone(product), navigate })
+                );
                 setSnackbarMessage(`${product.title} added to cart`);
                 setSnackbarOpen(true);
               }}
@@ -89,6 +103,7 @@ const ProductDetails = () => {
         </div>
       )}
       {loading && <LoadingComponent />}
+      {!loading && !product && <ErrorElement />}
     </div>
   );
 };

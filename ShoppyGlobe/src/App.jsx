@@ -22,9 +22,7 @@ const App = () => {
   //     navigate("/");
   //   }
   //   window.addEventListener("beforeunload", function (e) {
-  //     console.log("window called", bypassRef);
   //     if (bypassRef.current) {
-  //       console.log("indeed true");
   //       bypassRef.current = false;
   //       return;
   //     }

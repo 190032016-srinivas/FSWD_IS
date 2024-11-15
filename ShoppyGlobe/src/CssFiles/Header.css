@@ -36,12 +36,16 @@
   .logo {
     font-size: 1.7rem;
     font-weight: bold;
-    color: rgb(255, 221, 0);
+    /* color: rgb(255, 221, 0); */
+    color: rgb(255, 255, 255);
     font-style: italic;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: rgb(55, 0, 255);
+    padding: 0.5% 1%;
+    border-radius: 20px;
   }
   
   .right-section {

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const useFetchProducts = (
   setProducts,
@@ -8,11 +9,21 @@ const useFetchProducts = (
   // https://dummyjson.com/products
   // http://localhost:3000/products
 ) => {
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:3000/products");
+        let token = localStorage.getItem("authToken");
+        const response = await fetch("http://localhost:3000/products", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         if (!response.ok) {
+          if (response.status === 403) {
+            navigate("/login");
+            return;
+          }
           throw new Error("Failed to fetch products");
         }
         const data = await response.json();

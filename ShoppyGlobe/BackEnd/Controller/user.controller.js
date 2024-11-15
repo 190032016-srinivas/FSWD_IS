@@ -7,7 +7,7 @@ export async function login(req, res) {
     return res.status(400).json({ message: "please check credentials" });
   } else {
     if (verifiedUser.password === userDetails.password) {
-      const authToken = jwt.sign(userDetails, "srinivas_secret");
+      const authToken = jwt.sign(userDetails, "srinivas_secret_key");
       return res.status(200).json({
         authToken: authToken,
         user: verifiedUser,
