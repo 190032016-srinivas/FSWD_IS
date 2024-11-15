@@ -20,7 +20,8 @@ export async function getAllProductItems(req, res) {
       "preMadeProducts.json"
     );
     const data = readFileSync(dataPath, "utf-8");
-    allProductItems = await validProductItem.create(data);
+    const parsedData = JSON.parse(data);
+    allProductItems = await validProductItem.create(parsedData);
     // res.status(400).json({ message: "something went wrong" });
   }
   res.status(200).json({ products: allProductItems });
