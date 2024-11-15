@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import { cartRoutes } from "./Routes/cartRoutes.js";
-import { productRoutes } from "./Routes/ProductRoutes.js";
+import { productRoutes } from "./Routes/productRoutes.js";
 import { userRoutes } from "./Routes/userRoutes.js";
 import jwt from "jsonwebtoken";
 

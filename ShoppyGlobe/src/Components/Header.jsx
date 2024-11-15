@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GlobalContext } from "../GlobalData";
 import { resetCartFromDb } from "../CartSlice";
 import LogoutIcon from "@mui/icons-material/Logout";
-import logo from "../../public/Images/shoppyGlobeLogo.png";
+import logo from "../assets/shoppyGlobeLogo.png";
 const Header = () => {
   const noOfCartItmes = useSelector((state) => state.cart.cartItems).length;
   const { searchValue, setSearchValue } = useContext(GlobalContext);
