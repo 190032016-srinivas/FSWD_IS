@@ -205,9 +205,7 @@ async function load(city) {
 
 
 
-//getting your location button implementation
-//yes i took cgpt's 'help' for this specific section
-// but the code is not copied i fully understand the working
+
 
 const useloc_btn = document.getElementById('useloc_btn')
 function getLocation() {
